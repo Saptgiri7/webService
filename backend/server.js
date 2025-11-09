@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const PORT = process.env.PROT || 5000;
+const PORT = process.env.PORT || 5000;
 const domain = `pengondakalyanifoods`;
 const authRoutes = require(`./routes/authRoute`);
 const productsRoutes = require('./routes/productsRoute');
