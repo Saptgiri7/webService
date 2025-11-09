@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, fetchCart, removeFromCart } from "../redux/cart";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const {isLoggedIn} = useSelector((state) => state.cart)
   const [tempData,setTempData] = useState(JSON.parse(localStorage.getItem('guestCart')) || []);  
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const handleRemoveFromGuestCart = (product) =>{
     const updatedCart = JSON.parse(localStorage.getItem('guestCart')).filter((item) => !(item.productId === product.productId && item.size === product.size))
@@ -39,6 +40,10 @@ const Cart = () => {
 
   const handleAddToCart = (product) =>{
     dispatch(addToCart(product));
+  }
+
+  const handleCheckOut = () =>{
+    navigate('/comingsoon')
   }
 
 
@@ -186,7 +191,7 @@ const Cart = () => {
 
     {/* Right: Checkout Button */}
     <div className="flex flex-col items-end w-full sm:w-auto">
-      <button className="bg-blue-600 text-white px-8 py-3 rounded-xl font-semibold shadow-md hover:bg-blue-700 transition-all duration-300 w-full sm:w-auto">
+      <button className="bg-blue-600 text-white px-8 py-3 rounded-xl font-semibold shadow-md hover:bg-blue-700 transition-all duration-300 w-full sm:w-auto" onClick={handleCheckOut}>
         Proceed to Checkout →
       </button>
       <p className="text-xs text-gray-500 mt-2">

@@ -1,92 +1,63 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("Message sent successfully!");
-    setFormData({ name: "", email: "", message: "" });
-  };
+  const locations = [
+    {
+      city: "Solapur, Maharashtra",
+      address: "Chatti Gali, Infront of Sudha Idli Gruh",
+      phone: "+91 7385283012",
+      email: "kalyanipengonda@gmail.com",
+    },
+    {
+      city: "Kolhapur, Maharashtra",
+      address: "13th Ln, Rajarampuri, Kolhapur, Maharashtra, India",
+      phone: "+91 7385283012",
+      email: "kalyanipengonda@gmail.com",
+    },
+  ];
 
   return (
-    <div className="w-full bg-gray-50 min-h-[calc(100vh-80px)] flex items-center justify-center px-6 py-16">
-      <div className="max-w-4xl w-full bg-white rounded-2xl shadow-md p-8 md:p-12">
-        <h1 className="text-3xl font-bold text-gray-900 mb-6 text-center">
-          Contact Us
+    <div className="w-full bg-gray-50 min-h-[calc(100vh-80px)] flex items-center justify-center px-12 py-24">
+      <div className="max-w-5xl w-full bg-white rounded-2xl shadow-md p-8 md:p-12">
+        <h1 className="text-3xl font-bold text-gray-900 mb-4 text-center">
+          Get in Touch
         </h1>
 
-        <div className="grid md:grid-cols-2 gap-10">
-          {/* Left side: Form */}
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              placeholder="Your Name"
-              required
-              className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+        <p className="text-center text-gray-600 mb-10 max-w-2xl mx-auto">
+          We'd love to hear from you! Whether you have a question about our products,
+          need assistance, or just want to connect — feel free to reach out through
+          any of the locations below. Our team is always happy to help 😊
+        </p>
 
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="Your Email"
-              required
-              className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-
-            <textarea
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              placeholder="Your Message"
-              required
-              rows="5"
-              className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            ></textarea>
-
-            <button
-              type="submit"
-              className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 rounded-lg transition-colors"
+        <div className="grid md:grid-cols-2 gap-8">
+          {locations.map((loc, index) => (
+            <div
+              key={index}
+              className="bg-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow"
             >
-              Send Message
-            </button>
-          </form>
-
-          {/* Right side: Info */}
-          <div className="flex flex-col justify-center text-gray-700">
-            <h2 className="text-xl font-semibold mb-3">Get in Touch</h2>
-            <p className="mb-4">
-              Have questions or feedback? We’d love to hear from you.
-            </p>
-
-            <p className="mb-2">
-              📍 <span className="font-medium">Address:</span> Solapur, Maharashtra, India
-            </p>
-            <p className="mb-2">
-              📞 <span className="font-medium">Phone:</span> +91 98765 43210
-            </p>
-            <p className="mb-2">
-              ✉️ <span className="font-medium">Email:</span> support@yourcompany.com
-            </p>
-
-            <p className="mt-6 text-sm text-gray-500">
-              We typically respond within 24 hours 😊
-            </p>
-          </div>
+              <h2 className="text-xl font-semibold text-gray-800 mb-3">
+                📍 {loc.city}
+              </h2>
+              <p className="text-gray-600 mb-2">
+                <span className="font-medium">Address:</span> {loc.address}
+              </p>
+              <p className="text-gray-600 mb-2">
+                <span className="font-medium">Phone:</span> {loc.phone}
+              </p>
+              <p className="text-gray-600">
+                <span className="font-medium">Email:</span> {loc.email}
+              </p>
+            </div>
+          ))}
         </div>
+
+        <p className="text-center text-gray-500 mt-12">
+          You can also reach out to us on our{" "}
+          <span className="text-blue-600 font-medium">
+            social media
+          </span>{" "}
+           handles for quick support 💬
+        </p>
       </div>
     </div>
   );

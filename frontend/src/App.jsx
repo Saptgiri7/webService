@@ -13,6 +13,7 @@ import store from './store'
 import ProductDetails from './pages/ProductDetails'
 import Settings from './pages/Settings'
 import CreateNewAccount from './pages/CreateNewAccount'
+import ComingSoon from './pages/comingSoon'
 
 
 const router = createBrowserRouter(
@@ -82,6 +83,14 @@ const router = createBrowserRouter(
     {
       path: '/register',
       element : <CreateNewAccount/>
+    },
+    {
+      path: '/comingsoon',
+      element : <>
+      <Navbar/>
+      <ComingSoon/>
+      <Footer/>
+      </>
     }
   ]
 )
