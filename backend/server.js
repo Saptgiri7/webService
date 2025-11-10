@@ -5,6 +5,7 @@ const domain = `pengondakalyanifoods`;
 const authRoutes = require(`./routes/authRoute`);
 const productsRoutes = require('./routes/productsRoute');
 const cartroutes = require('./routes/cartRoute');
+const testRoutes = require('./routes/testRoute');
 const userSettingsRoutes = require('./routes/userRoute');
 const errorHandleMiddler = require('./middleware/errorHandler');
 const connectDB = require('./config/db');
@@ -20,6 +21,7 @@ app.use(`/${domain}/user`,authRoutes)
 app.use(`/${domain}/products`,productsRoutes);
 app.use(`/${domain}/cart`,authorize,cartroutes);
 app.use(`/${domain}/user/settings`,authorize,userSettingsRoutes)
+app.use(`/${domain}/test`,testRoutes)
 app.use(errorHandleMiddler);
 
 
