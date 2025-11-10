@@ -51,7 +51,7 @@ export default function Home() {
             Our Initiative
           </h2>
           <p className="text-gray-600 leading-relaxed">
-            At <span className="font-semibold">[Your Company Name]</span>, we
+            At <span className="font-semibold">Pengonda Kalyani Foods</span>, we
             believe food should be pure, homemade, and free from harmful
             chemicals. Every product we create comes straight from the heart —
             bringing health and happiness to your plate.
