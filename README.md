@@ -111,7 +111,3 @@ npm run build      # Production build
 - [ ] Docker + CI/CD pipeline
 
 ---
-
-## 👤 Author
-
-**Saptarshi Giri** — [GitHub](https://github.com/Saptgiri7)
